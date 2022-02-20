@@ -327,7 +327,7 @@ let timetable = {
 				<input type="number" class="form-control" >
 			  </div>
 			  <div class="input-group mb-3">
-				<label class="input-group-text" for="inputGroupSelect01">Options</label>
+				<label class="input-group-text" for="styleSelect">Style</label>
 				<select class="form-select" id="styleSelect">
 				  <option value ="" selected>Default</option>
 				  <option value="table-primary">Blue</option>
