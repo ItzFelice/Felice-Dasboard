@@ -229,7 +229,7 @@ let timetable = {
 			type="button"
 			class="btn"
 			data-bs-toggle="modal"
-			data-bs-target="#ediTimeSlot"
+			data-bs-target="#editTimeSlot"
 		  >
 			{timeSlot.name}
 		  </button>
@@ -246,6 +246,8 @@ let timetable = {
 		  <button
 			type="button"
 			class="btn"
+			data-bs-toggle="modal"
+			data-bs-target="#editTimeSlot"
 		  >
 			{timeSlot.name}
 		  </button>
@@ -262,6 +264,8 @@ let timetable = {
 		  <button
 			type="button"
 			class="btn"
+			data-bs-toggle="modal"
+			data-bs-target="#editTimeSlot"
 		  >
 			{timeSlot.name}
 		  </button>
@@ -278,6 +282,8 @@ let timetable = {
 		  <button
 			type="button"
 			class="btn"
+			data-bs-toggle="modal"
+			data-bs-target="#editTimeSlot"
 		  >
 			{timeSlot.name}
 		  </button>
@@ -294,6 +300,8 @@ let timetable = {
 		  <button
 			type="button"
 			class="btn"
+			data-bs-toggle="modal"
+			data-bs-target="#editTimeSlot"
 		  >
 			{timeSlot.name}
 		  </button>
