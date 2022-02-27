@@ -1,7 +1,7 @@
 <script> 
   import supabase from "$lib/db";
 function addTimeSlot (day) {
-if (day=="Monday") {  
+	if (day=="Monday") {  
 	timetable.Monday = [
     ...timetable.Monday,
     { name: "??", period: 1, style: "" }
@@ -26,15 +26,17 @@ if (day=="Monday") {
     ...timetable.Friday,
     { name: "??", period: 1, style: "" }
   ];}
-}  function deleteTimeSlot(day,index) {  
-	timeday[day].splice(index,1); 
-	timetable = timetable;
+}  
+	function deleteTimeSlot(day,index) {  
+		timetable[day].splice(index,1); 
+		timetable = timetable;
+	}
 
 	function setTimeSlot(day,index,newName,newPeriod,newStyle){
 		timetable[day][index].name = newName;
 		timetable[day][index].period = newPeriod;
 		timetable[day][index].style = newStyle;
- }
+ 	}
 let timetable = {
 	Monday: [
   	{
