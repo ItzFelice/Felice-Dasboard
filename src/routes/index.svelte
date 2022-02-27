@@ -26,7 +26,15 @@ if (day=="Monday") {
     ...timetable.Friday,
     { name: "??", period: 1, style: "" }
   ];}
-}
+}  function deleteTimeSlot(day,index) {  
+	timeday[day].splice(index,1); 
+	timetable = timetable;
+
+	function setTimeSlot(day,index,newName,newPeriod,newStyle){
+		timetable[day][index].name = newName;
+		timetable[day][index].period = newPeriod;
+		timetable[day][index].style = newStyle;
+ }
 let timetable = {
 	Monday: [
   	{
@@ -199,6 +207,21 @@ let timetable = {
   	},
 	],
   };
+
+let curDay;
+let curIndex;
+let curName;
+let curPeriod;
+let curStyle;
+
+function showCurData(day,index,name,period,style){
+	curDay = day;
+	curIndex = index;
+	curName = name;
+	curPeriod = period;
+	curStyle = style;
+}
+
 </script>
 <div class="container mt-5">
 	<h1>My Dashboard</h1>
@@ -230,7 +253,7 @@ let timetable = {
 			class="btn"
 			data-bs-toggle="modal"
 			data-bs-target="#editTimeSlot"
-		  >
+			on:click={()=>showCurData("Monday",index,timeSlot.name,timeSlot.period,timeSlot.style)}>
 			{timeSlot.name}
 		  </button>
 		</td>
@@ -248,7 +271,7 @@ let timetable = {
 			class="btn"
 			data-bs-toggle="modal"
 			data-bs-target="#editTimeSlot"
-		  >
+			on:click={()=>showCurData("Tuesday",index,timeSlot.name,timeSlot.period,timeSlot.style)}>
 			{timeSlot.name}
 		  </button>
 		</td>
@@ -266,7 +289,7 @@ let timetable = {
 			class="btn"
 			data-bs-toggle="modal"
 			data-bs-target="#editTimeSlot"
-		  >
+			on:click={()=>showCurData("Wednesday",index,timeSlot.name,timeSlot.period,timeSlot.style)}>
 			{timeSlot.name}
 		  </button>
 		</td>
@@ -284,7 +307,7 @@ let timetable = {
 			class="btn"
 			data-bs-toggle="modal"
 			data-bs-target="#editTimeSlot"
-		  >
+			on:click={()=>showCurData("Thursday",index,timeSlot.name,timeSlot.period,timeSlot.style)}>
 			{timeSlot.name}
 		  </button>
 		</td>
@@ -302,7 +325,7 @@ let timetable = {
 			class="btn"
 			data-bs-toggle="modal"
 			data-bs-target="#editTimeSlot"
-		  >
+			on:click={()=>showCurData("Friday",index,timeSlot.name,timeSlot.period,timeSlot.style)}>
 			{timeSlot.name}
 		  </button>
 		</td>
@@ -328,15 +351,15 @@ let timetable = {
 		<div class="modal-body">
 			<div class="input-group mb-3">
 				<span class="input-group-text" id="basic-addon1">Name</span>
-				<input type="text" class="form-control" >
+				<input type="text" class="form-control" bind:value={curName}> 
 			  </div>
 			  			<div class="input-group mb-3">
 				<span class="input-group-text" id="basic-addon1">Period</span>
-				<input type="number" class="form-control" >
+				<input type="number" class="form-control" bind:value={curPeriod}> 
 			  </div>
 			  <div class="input-group mb-3">
 				<label class="input-group-text" for="styleSelect">Style</label>
-				<select class="form-select" id="styleSelect">
+				<select class="form-select" id="styleSelect" bind:value={curStyle}> 
 				  <option value ="" selected>Default</option>
 				  <option value="table-primary">Blue</option>
 				  <option value="table-success">Green</option>
@@ -349,8 +372,8 @@ let timetable = {
 		</div>
 		<div class="modal-footer">
 		  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-		  <button type="button" class="btn btn-primary">Delete</button>
-		  <button type="button" class="btn btn-primary">Save changes</button>
+		  <button type="button" class="btn btn-danger" data-bs-dismiss = "model" on:click={()=>{deleteTimeSlot(curDay,curIndex)}}>Delete</button>
+		  <button type="button" class="btn btn-primary"data-bs-dismiss = "model" on:click={()=>{setTimeSlot(curDay,curIndex,curName,curPeriod,curStyle)}}>Save changes</button>
 		</div>
 	  </div>
 	</div>
