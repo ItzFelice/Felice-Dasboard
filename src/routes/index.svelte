@@ -223,7 +223,6 @@ function showCurData(day,index,name,period,style){
 	curPeriod = period;
 	curStyle = style;
 }
-
 </script>
 <div class="container mt-5">
 	<h1>My Dashboard</h1>
